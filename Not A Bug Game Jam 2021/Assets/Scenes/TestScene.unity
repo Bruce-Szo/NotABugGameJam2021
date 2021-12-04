@@ -1423,6 +1423,18 @@ PrefabInstance:
       propertyPath: jumpAmount
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3806725474951100334, guid: 0e776eda7525bda43b45ab73bdb10055, type: 3}
+      propertyPath: m_Size.x
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806725474951100334, guid: 0e776eda7525bda43b45ab73bdb10055, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3806725474951100334, guid: 0e776eda7525bda43b45ab73bdb10055, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3806725474951100335, guid: 0e776eda7525bda43b45ab73bdb10055, type: 3}
       propertyPath: m_Name
       value: ship
