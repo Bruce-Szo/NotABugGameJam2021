@@ -19,10 +19,6 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
-    {
-        rb.velocity = (transform.right * movementSpeed * Input.GetAxisRaw("Horizontal"));
-    }
     private void Update()
     {
         if (Input.GetButton("Jump") && !jumping) {
@@ -32,6 +28,11 @@ public class PlayerController : MonoBehaviour
         {
             Shoot();
         }
+        if (Input.GetButton("Horizontal") && rb.velocity.x < movementSpeed && rb.velocity.x > -movementSpeed)
+        {
+            rb.AddForce(Vector2.right * Input.GetAxisRaw("Horizontal"));
+        }
+
     }
     void Jump()
     {
@@ -40,7 +41,16 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        jumping = false;
+        
+        if (collision.contacts.Length > 0)
+        {
+            ContactPoint2D contact = collision.contacts[0];
+            if (Vector2.Dot(contact.normal, Vector2.up) > 0.5)
+            {
+                //collision was from below
+                jumping = false;
+            }
+        }
     }
     void Shoot()
     {

@@ -5,7 +5,6 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     Renderer r;
-    public float damage = 1;
     // Start is called before the first frame update
     void Start()
     {
