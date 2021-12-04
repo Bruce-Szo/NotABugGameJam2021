@@ -215,8 +215,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c5370722ae9bf2949ac9ae3e81ac589b, type: 3}
   - {fileID: 8300000, guid: 74a9d9587e921f94ea9d845d7df4d6ff, type: 3}
   shootFX: {fileID: 8300000, guid: 8138004f5e4181f4397299180143bca5, type: 3}
-  soundVolume: 0.1
-  musicVolume: 0.1
+  soundVolume: 0.01
+  musicVolume: 0.01
 --- !u!4 &632711657
 Transform:
   m_ObjectHideFlags: 0

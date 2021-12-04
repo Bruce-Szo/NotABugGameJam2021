@@ -11,17 +11,24 @@ public class AudioManager : MonoBehaviour
     public float soundVolume;
     public float musicVolume;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        PlayRandomMusic();
-    }
-
     public void PlayRandomMusic() {
-        int backgroundMusicID = EazySoundManager.PlayMusic(soundtrack[Random.Range(0, soundtrack.Length)], musicVolume, true, false, 1, 1);
+        int backgroundMusicID = EazySoundManager.PlayMusic(soundtrack[Random.Range(0, soundtrack.Length)], musicVolume, true, true, 1, 1);
     }
 
     public void PlayShootEffect() {
         int shootID = EazySoundManager.PlaySound(shootFX, soundVolume);
+    }
+
+    public void SetGlobalVolume(float volume)
+    {
+        EazySoundManager.GlobalVolume = volume;
+    }
+    public void SetSoundVolume(float volume)
+    {
+        EazySoundManager.GlobalSoundsVolume = volume;
+    }
+    public void SetMusicVolume(float volume)
+    {
+        EazySoundManager.GlobalMusicVolume = volume;
     }
 }
