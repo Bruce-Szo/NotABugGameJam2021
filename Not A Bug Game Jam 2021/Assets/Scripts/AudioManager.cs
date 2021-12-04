@@ -8,17 +8,20 @@ public class AudioManager : MonoBehaviour
     public AudioClip[] soundtrack;
     public AudioClip shootFX;
 
+    public float soundVolume;
+    public float musicVolume;
+
     // Start is called before the first frame update
     void Start()
     {
         PlayRandomMusic();
     }
 
-    void PlayRandomMusic() {
-        int backgroundMusicID = EazySoundManager.PlayMusic(soundtrack[Random.Range(0, soundtrack.Length)], 0.1f, true, false, 1, 1);
+    public void PlayRandomMusic() {
+        int backgroundMusicID = EazySoundManager.PlayMusic(soundtrack[Random.Range(0, soundtrack.Length)], musicVolume, true, false, 1, 1);
     }
 
-    void PlayShootEffect() {
-        int shootID = EazySoundManager.PlaySound(shootFX, 0.2f);
+    public void PlayShootEffect() {
+        int shootID = EazySoundManager.PlaySound(shootFX, soundVolume);
     }
 }

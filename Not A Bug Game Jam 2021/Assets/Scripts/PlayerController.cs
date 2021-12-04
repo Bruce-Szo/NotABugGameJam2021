@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    AudioManager audioManager;
     public GameObject ammo;
     public float jumpAmount;
     public float movementSpeed;
@@ -17,6 +18,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        GameObject aM = GameObject.FindWithTag("AudioManager");
+        audioManager = aM.GetComponent<AudioManager>();
     }
 
     private void Update()
@@ -60,6 +63,8 @@ public class PlayerController : MonoBehaviour
         Rigidbody2D rigidBullet = bullet.GetComponent<Rigidbody2D>();
         rigidBullet.velocity = new Vector2(bullet.transform.up.x, bullet.transform.up.y).normalized * bulletSpeed;
         bullet.transform.position = transform.position;
+
+        audioManager.PlayShootEffect();
 
     }
     IEnumerator Shooting()
