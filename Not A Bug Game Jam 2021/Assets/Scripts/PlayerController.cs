@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         GameObject bullet = Instantiate(ammo);
         Rigidbody2D rigidBullet = bullet.GetComponent<Rigidbody2D>();
         rigidBullet.velocity = new Vector2(bullet.transform.up.x, bullet.transform.up.y).normalized * bulletSpeed;
-        bullet.transform.position = transform.position;
+        bullet.transform.position = new Vector3(transform.position.x, transform.position.y + 1.3f, transform.position.z);
 
         audioManager.PlayShootEffect();
 
