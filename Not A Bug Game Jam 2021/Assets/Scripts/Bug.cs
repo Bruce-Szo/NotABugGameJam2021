@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Bug : MonoBehaviour
 {
-    public bool head = true;
+    public bool head;
+    public Bug nextBug;
+    
     // Start is called before the first frame update
     void Start()
     {
