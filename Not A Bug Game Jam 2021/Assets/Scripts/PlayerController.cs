@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
         if (Input.GetButton("Jump") && !jumping) {
             Jump();
         }
@@ -31,16 +32,13 @@ public class PlayerController : MonoBehaviour
         {
             Shoot();
         }
-        if (Input.GetButton("Horizontal") && rb.velocity.x < movementSpeed && rb.velocity.x > -movementSpeed)
-        {
-            rb.AddForce(Vector2.right * Input.GetAxisRaw("Horizontal"));
-        }
+        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed, rb.velocity.y);
 
     }
     void Jump()
     {
         jumping = true;
-        rb.AddForce(Vector2.up * jumpAmount);
+        rb.velocity = new Vector2(rb.velocity.x, jumpAmount);
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
