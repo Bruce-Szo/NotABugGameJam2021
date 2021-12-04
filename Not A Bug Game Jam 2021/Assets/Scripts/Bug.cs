@@ -6,7 +6,10 @@ public class Bug : MonoBehaviour
 {
     public bool head;
     public Bug nextBug;
-    
+    public Sprite BugLeaderSprite;
+
+    Vector3 nextLocation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +20,10 @@ public class Bug : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void BecomeLeader() {
+        gameObject.GetComponent<SpriteRenderer>().sprite = BugLeaderSprite;
+        head = true;
     }
 }
