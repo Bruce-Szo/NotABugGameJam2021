@@ -26,4 +26,11 @@ public class Bug : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = BugLeaderSprite;
         head = true;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (nextBug != null) nextBug.BecomeLeader();
+        Destroy(gameObject);
+        Destroy(collision.gameObject);
+    }
 }
