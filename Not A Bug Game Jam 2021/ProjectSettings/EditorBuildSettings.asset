@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameLoop.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 653ac69647873ac4681e81a0cf569ab8
+  - enabled: 1
+    path: Assets/Scenes/TestScene.unity
+    guid: e82f75a6b34835643aa9915f7f1af007
   m_configObjects: {}
