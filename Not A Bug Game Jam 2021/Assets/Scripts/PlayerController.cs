@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     bool shooting = false;
     bool jumping = false;
+    bool isGrounded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +25,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
-        if (Input.GetButton("Jump") && !jumping) {
+        if (Input.GetButton("Jump") && !jumping && isGrounded) {
             Jump();
         }
         if (Input.GetButton("Fire1") && !shooting)
@@ -42,16 +42,10 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        
-        if (collision.contacts.Length > 0)
-        {
-            ContactPoint2D contact = collision.contacts[0];
-            if (Vector2.Dot(contact.normal, Vector2.up) > 0.5)
-            {
-                //collision was from below
-                jumping = false;
-            }
-        }
+
+        jumping = false;
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down);
+        isGrounded = hit2D.collider != null && Mathf.Abs(transform.position.y - hit2D.point.y) < 0.5f;
     }
     void Shoot()
     {
