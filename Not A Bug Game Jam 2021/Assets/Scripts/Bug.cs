@@ -111,5 +111,6 @@ public class Bug : MonoBehaviour
         tilemap.SetTile(grid.WorldToCell(movePoint), mushroomTile);
         Destroy(gameObject);
         Destroy(collision.gameObject);
+        GameObject.FindWithTag("Scoreboard").GetComponent<Scoreboard>().score += 100;
     }
 }

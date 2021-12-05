@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     bool shooting = false;
     bool jumping = false;
     bool isGrounded = false;
+    Renderer r;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         GameObject aM = GameObject.FindWithTag("AudioManager");
         audioManager = aM.GetComponent<AudioManager>();
+        r = gameObject.GetComponent<Renderer>();
     }
 
     private void Update()
@@ -33,7 +36,6 @@ public class PlayerController : MonoBehaviour
             Shoot();
         }
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * movementSpeed, rb.velocity.y);
-
     }
     void Jump()
     {
@@ -64,5 +66,12 @@ public class PlayerController : MonoBehaviour
         shooting = true;
         yield return new WaitForSeconds(1f / shootSpeed);
         shooting = false;
+    }
+    private void FixedUpdate()
+    {
+        if (!r.isVisible)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

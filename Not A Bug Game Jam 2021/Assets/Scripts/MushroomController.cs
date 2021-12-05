@@ -19,6 +19,8 @@ public class MushroomController : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            GameObject aM = GameObject.FindWithTag("AudioManager");
+            GameObject.FindWithTag("Scoreboard").GetComponent<Scoreboard>().score += 10;
         }
         else { 
             r.sprite = sprites[health - 1]; //update image to damaged one

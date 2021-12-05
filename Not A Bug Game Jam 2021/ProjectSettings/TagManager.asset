@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AudioManager
   - Mushroom
+  - Scoreboard
   layers:
   - Default
   - TransparentFX
