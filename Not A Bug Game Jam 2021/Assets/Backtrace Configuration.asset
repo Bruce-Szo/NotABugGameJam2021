@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e908b13f7467f4185f3f45d43568c4, type: 3}
   m_Name: Backtrace Configuration
   m_EditorClassIdentifier: 
-  ServerUrl: 
+  ServerUrl: https://submit.backtrace.io/backtracegamejamtriaxospherestudios/2c89b27c06efdf7685ef0b8f38af11957c21a790b80ab479f5a5c045d54e2d59/json
   Token: 
   ReportPerMin: 50
   DisableInEditor: 0
@@ -29,22 +29,22 @@ MonoBehaviour:
   HandleANR: 1
   AnrWatchdogTimeout: 5000
   DeduplicationStrategy: 0
-  EnableBreadcrumbsSupport: 0
-  BacktraceBreadcrumbsLevel: 127
-  LogLevel: 31
+  EnableBreadcrumbsSupport: 1
+  BacktraceBreadcrumbsLevel: -1
+  LogLevel: -1
   UseNormalizedExceptionMessage: 0
   MinidumpType: 524286
-  GenerateScreenshotOnException: 0
+  GenerateScreenshotOnException: 1
   AttachmentPaths: []
-  DatabasePath: ${Application.persistentDataPath}/backtrace
+  DatabasePath: ${Application.persistentDataPath}/.backtrace.io/
   EnableMetricsSupport: 1
   TimeIntervalInMin: 30
-  Enabled: 0
+  Enabled: 1
   AddUnityLogToReport: 0
   AutoSendMode: 1
   CreateDatabase: 1
-  MaxRecordCount: 8
-  MaxDatabaseSize: 0
+  MaxRecordCount: 100
+  MaxDatabaseSize: 50
   RetryInterval: 60
   RetryLimit: 3
   RetryOrder: 0
