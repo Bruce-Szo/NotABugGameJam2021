@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class Bug : MonoBehaviour
 {
-    public float moveSpeed = 1;
+    public static float moveSpeed = 1;
     public bool head;
     public Bug nextBug;
     public Bug leaderBug;
@@ -111,6 +111,6 @@ public class Bug : MonoBehaviour
         tilemap.SetTile(grid.WorldToCell(movePoint), mushroomTile);
         Destroy(gameObject);
         Destroy(collision.gameObject);
-        GameObject.FindWithTag("Scoreboard").GetComponent<Scoreboard>().score += 100;
+        Scoreboard.score += 100;
     }
 }

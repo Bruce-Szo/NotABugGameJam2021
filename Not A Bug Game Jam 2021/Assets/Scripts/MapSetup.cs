@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class MapSetup : MonoBehaviour
 {
-    public int mushroomCount;
+    public static int mushroomCount;
     public RuleTile mushroomTile;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +16,4 @@ public class MapSetup : MonoBehaviour
             tilemap.SetTile(new Vector3Int(Random.Range(-10,10), Random.Range(-3, 5), 0), mushroomTile); //set tile at random location
         }
     }
-
-
 }

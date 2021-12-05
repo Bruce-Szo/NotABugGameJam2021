@@ -427,7 +427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5353b25d69260814a8e35a14fcfdfcc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
 --- !u!1 &632711655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,7 +1315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f155b1c86c8e7df4895aac216107e3b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mushroomCount: 20
   mushroomTile: {fileID: 11400000, guid: f67eea4004ab1af4e9e3b7148ce8e5f6, type: 2}
 --- !u!4 &1600093569
 Transform:
@@ -1543,11 +1541,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3806725474951100322, guid: 0e776eda7525bda43b45ab73bdb10055, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.09
+      value: 0.481
       objectReference: {fileID: 0}
     - target: {fileID: 3806725474951100322, guid: 0e776eda7525bda43b45ab73bdb10055, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.66
+      value: -4.398
       objectReference: {fileID: 0}
     - target: {fileID: 3806725474951100322, guid: 0e776eda7525bda43b45ab73bdb10055, type: 3}
       propertyPath: m_LocalPosition.z

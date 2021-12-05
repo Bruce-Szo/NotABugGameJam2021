@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-
         jumping = false;
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down);
         isGrounded = hit2D.collider != null && Mathf.Abs(transform.position.y - hit2D.point.y) < 0.5f;
@@ -71,6 +70,9 @@ public class PlayerController : MonoBehaviour
     {
         if (!r.isVisible)
         {
+            MapSetup.mushroomCount += 5;
+            CentipedeSpawner.bodyLength += 5;
+            Bug.moveSpeed += 0.2;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
