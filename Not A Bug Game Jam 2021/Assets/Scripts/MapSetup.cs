@@ -13,7 +13,7 @@ public class MapSetup : MonoBehaviour
         Tilemap tilemap = GameObject.Find("/Grid/Tilemap").GetComponent<Tilemap>();
         for (int i = 0; i < mushroomCount; i++)
         {
-            tilemap.SetTile(new Vector3Int(Random.Range(-10,10), Random.Range(-3, 5), 0), mushroomTile);
+            tilemap.SetTile(new Vector3Int(Random.Range(-10,10), Random.Range(-3, 5), 0), mushroomTile); //set tile at random location
         }
     }
 

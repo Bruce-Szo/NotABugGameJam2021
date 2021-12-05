@@ -14,14 +14,14 @@ public class MushroomController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
+        Destroy(collision.gameObject); //destroy bullet gameobject
         health -= 1;
         if (health <= 0)
         {
             Destroy(gameObject);
         }
         else { 
-            r.sprite = sprites[health - 1];
+            r.sprite = sprites[health - 1]; //update image to damaged one
         }
         
     }

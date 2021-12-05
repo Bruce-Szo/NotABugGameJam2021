@@ -21,6 +21,7 @@ public class CentipedeSpawner : MonoBehaviour
             nextBug.name = (i+1).ToString();
 
             firstBug.GetComponent<Bug>().nextBug = nextBug.GetComponent<Bug>(); // Allows first bug to be able to communicate with second bug
+            nextBug.GetComponent<Bug>().leaderBug = firstBug.GetComponent<Bug>(); //Make doublely linked list
             firstBug = nextBug; // Start over with the second bug parenting the next, etc.
         }
     }

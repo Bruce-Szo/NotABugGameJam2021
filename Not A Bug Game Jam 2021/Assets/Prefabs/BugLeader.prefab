@@ -96,9 +96,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e653b988f510a284083bb7737c08ec7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 1
   head: 1
   nextBug: {fileID: 0}
+  leaderBug: {fileID: 0}
   BugLeaderSprite: {fileID: 0}
+  mushroomTile: {fileID: 11400000, guid: f67eea4004ab1af4e9e3b7148ce8e5f6, type: 2}
 --- !u!70 &1884530727379632027
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
