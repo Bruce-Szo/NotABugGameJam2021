@@ -27,22 +27,27 @@ public class Bug : MonoBehaviour
 
         direction = Vector3.down;
         if (head) 
-        { 
+        {
             movePoint = transform.position;
             movePoint += direction;
         }
-        else { movePoint = leaderBug.transform.position; }
+        else { 
+            movePoint = leaderBug.transform.position;
+        }
+        //rotation = Quaternion.AngleAxis((Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) - 90, Vector3.forward);
+        RotateGameObject(movePoint, moveSpeed * 3, -90f);
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, movePoint, moveSpeed * Time.deltaTime);
+        RotateGameObject(movePoint, moveSpeed * 3, -90f);
 
         if (Vector3.Distance(transform.position, movePoint) == 0f) {
+            FindDirection();
             if (head)
             {
-                FindDirection();
                 movePoint += direction;
             }
             else
@@ -51,6 +56,18 @@ public class Bug : MonoBehaviour
             }
         }
         
+    }
+
+    private void RotateGameObject(Vector3 target, float RotationSpeed, float offset)
+    {
+        //get the direction of the other object from current object
+        Vector3 dir = target - transform.position;
+        //get the angle from current direction facing to desired target
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        //set the angle into a quaternion + sprite offset depending on initial sprite facing direction
+        Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
+        //Roatate current game object to face the target using a slerp function which adds some smoothing to the move
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, RotationSpeed * Time.deltaTime);
     }
 
     private void FindDirection()
@@ -79,7 +96,7 @@ public class Bug : MonoBehaviour
 
     private bool CheckPosition(Vector3 pos) 
     {
-        return !Physics2D.OverlapCircle(pos, 0.2f);
+        return !Physics2D.OverlapCircle(pos, 0.4f);
     }
 
     public void BecomeLeader() 
@@ -91,7 +108,7 @@ public class Bug : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (nextBug != null) nextBug.BecomeLeader();
-        tilemap.SetTile(grid.WorldToCell(transform.position), mushroomTile);
+        tilemap.SetTile(grid.WorldToCell(movePoint), mushroomTile);
         Destroy(gameObject);
         Destroy(collision.gameObject);
     }
