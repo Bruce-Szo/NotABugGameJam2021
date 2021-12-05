@@ -72,7 +72,8 @@ public class PlayerController : MonoBehaviour
         {
             MapSetup.mushroomCount += 5;
             CentipedeSpawner.bodyLength += 5;
-            Bug.moveSpeed += 0.2;
+            Bug.moveSpeed += 0.2f;
+            Scoreboard.score += 10000;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
