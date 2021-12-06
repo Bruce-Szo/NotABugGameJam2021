@@ -9,6 +9,6 @@ public class BackGroundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = backgrounds[Random.Range(0, 32)];
+        gameObject.GetComponent<SpriteRenderer>().sprite = backgrounds[Random.Range(0, 24)];
     }
 }
