@@ -7,7 +7,7 @@ public class CentipedeSpawner : MonoBehaviour
     public Transform spawnPoint;
     public Transform head;
     public Transform body;
-    public static int bodyLength;
+    public static int bodyLength = 10;
 
     // Start is called before the first frame update
     void Start()
